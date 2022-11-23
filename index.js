@@ -10,3 +10,14 @@ items[1].style.backgroundColor = 'yellow';
 for(var i =0;i<items.length;i++){
     items[i].style.fontWeight="bold";
 }
+
+
+//////////////////
+
+var newli = document.getElementsByClassName("newli");
+console.log(newli)
+newli.innerHTML='hello';
+
+var newli= document.getElementsByTagName("li")
+console.log(newli)
+console.log(newli[4])
