@@ -67,8 +67,12 @@ var email = document.getElementById('email').value;
 
 var ur = localStorage.setItem('user',user);
 var em = localStorage.setItem('email',email);
-}
 
+const obj = {
+  user,email
+}
+localStorage.setItem('userdetail',JSON.stringify(obj))
+}
     </script>
 </body>
 
