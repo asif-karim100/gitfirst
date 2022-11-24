@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+</head>
+<style>
+   
+     .container {
+         margin-top: 20px;
+        border: 1px solid rgb(0, 255, 0);
+        border-radius: 20px;
+        padding: 2px;
+        width: 500px;
+       
+        margin-inline: 300px;
+        background-color:#f4f4f4;
+        
+
+
+    } 
+</style>
+<body>
+    <section class="container my-4" >
+    <form id="myform">
+        <h1>Add User</h1>
+        <div class="msg"></div>
+       
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <br>
+          <input type="text"  id="name" >
+        
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <br>
+          <input type="text"id="email">
+        </div>
+    
+       
+        <input class="btn" type="submit" value="submit">
+        
+      </form>
+     
+
+       
+
+  
+   
+    
+
+    <script >
+          const myform = document.querySelector('#myform');
+const nameinput = document.querySelector('#name');
+const emailinput = document.querySelector('#email');
+
+myform.addEventListener('submit',onsubmit);
+
+function onsubmit(e){
+
+
+var user = document.getElementById('name').value;
+var email = document.getElementById('email').value;
+
+var ur = localStorage.setItem('user',user);
+var em = localStorage.setItem('email',email);
+}
+
+    </script>
+</body>
+
+</html>
