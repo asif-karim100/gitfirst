@@ -23,8 +23,8 @@
     } 
 </style>
 <body>
-    <section class="container my-4" >
-    <form id="myform">
+    <section class="container " >
+    <form id="myform" onsubmit='store(event)'>
         <h1>Add User</h1>
         <div class="msg"></div>
        
@@ -37,43 +37,110 @@
         <div class="form-group">
           <label for="email">Email:</label>
           <br>
-          <input type="text"id="email">
+          <input type="email"id="email" >
         </div>
     
        
-        <input class="btn" type="submit" value="submit">
-        
+        <!-- <input class="btn" type="submit" value="submit"> -->
+        <button>submit</button>
+        <!-- </section> -->
+        <!-- <ul id="listOfUser"></ul> -->
       </form>
-     
+      <!-- <ul id="listOfUser"></ul> -->
 
+      </section>
+      
+     
+       <ul id="user"></ul>
        
 
   
    
     
 
-    <script >
-          const myform = document.querySelector('#myform');
-const nameinput = document.querySelector('#name');
-const emailinput = document.querySelector('#email');
+<script >
+// const myform = document.querySelector('#myform');
+// const nameinput = document.querySelector('#name');
+// const emailinput = document.querySelector('#email');
 
-myform.addEventListener('submit',onsubmit);
+// myform.addEventListener('submit',onsubmit);
+
+// function onsubmit(e){
+// e.preventDefault();
+
+// const name = document.getElementById('name').value;
+
+// const email = document.getElementById('email').value;
+
+// // const ur = localStorage.setItem('name',name);
+// // const em = localStorage.setItem('email',email);
+
+// const obj = {
+//   name,email
+// }
+// localStorage.setItem('userdetail',JSON.stringify(obj))
+
+// //using email as unique key
+// localStorage.setItem(obj.email,JSON.stringify(obj));
+// showUserDetails(obj);
+// }
+// function showUserDetails(user){
+//   const parentNode = document.getElementById('listOfUser');
+//   const childHTML = `<li>${user.name} - ${user.email}</li>`
+//   parentNode.innerHTML = parentNode.innerHTML+childHTML;
+ 
+//    }
+
+
+    myform.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
+    e.preventDefault();
 
 
-var user = document.getElementById('name').value;
-var email = document.getElementById('email').value;
+const name = document.getElementById('name').value;
 
-var ur = localStorage.setItem('user',user);
-var em = localStorage.setItem('email',email);
+const email = document.getElementById('email').value;
+
+// // const ur = localStorage.setItem('name',name);
+// // const em = localStorage.setItem('email',email);
 
 const obj = {
-  user,email
+  name,email
 }
-localStorage.setItem('userdetail',JSON.stringify(obj))
+
+localStorage.setItem(obj.email,JSON.stringify(obj));
+showNewUserOnScreen(obj);
 }
+window.addEventListener("DOMContentLoaded",()=>{
+    const localstorageobj = localStorage;
+    const localStorageKeys = Object.keys(localstorageobj);
+    for(var i=0 ;i<localStorageKeys.length;i++){
+        const key = localStorageKeys[i];
+        const userDetailsString = localstorageobj[key];
+        const userDetailsObj = JSON.parse(userDetailsString)
+        showNewUserOnScreen(userDetailsObj)
+    }
+})
+    function showNewUserOnScreen(user){
+  const parentNode = document.getElementById('user');
+  const childHTML = `<li> ${user.name} -- ${user.email}</li>`;
+  parentNode.innerHTML =  parentNode.innerHTML+childHTML;
+   }
+
+
+
+
+
+
+
+
+
+
+
     </script>
+   
+
 </body>
 
 </html>
