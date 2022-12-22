@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//         const posts = [
+//        { title : 'Post One' , body: 'this is post one'},
+//        {title: 'Post Two' , body: 'this is post two'}
+// ];
+
+// function getPosts(){
+
+//    setTimeout(() => {
+//        let output = '';
+//            posts.forEach((post,index) =>{
+//                output += `<li> ${post.title}</li>`;
+//            });
+//            document.body.innerHTML = output;
+        
+//    }, 1000);
+   
+        
+// }
+// function createPost(post){
+
+//    return new Promise((resolve,reject) =>{
+//        setTimeout(() => {
+//        posts.push(post );
+
+//        const error = false;
+//        if(!error){
+//            resolve();
+//        }else{
+//            reject("Something went wrong");
+//        }
+       
+//    },2000);
+//    });  
+// }
+// async function init(){
+//     await createPost({title:'Post Three',body:'this is post three'});
+//        getPosts();
+// }
+// init();
+  
+    /////////////////////////////////////
+
+// async function fetchUsers(){
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//     const data = await res.json();
+//     console.log(data)
+// }
+// fetchUsers();
+
+////////////////
+// const posts = [
+//     {title : 'Post 1',body : 'This is post One.',createdAt : new Date().getTime()},
+//     {title : 'Post 2',body : 'This is post Two.',createdAt : new Date().getTime()}
+// ];
+
+// let intervalId = 0;
+
+// function getPosts(){
+//     clearInterval(intervalId);
+//     intervalId =  setInterval(() => {
+//         let output = '';
+//         posts.forEach((post)=>{
+//             let createdDate = new Date(post.createdAt);
+//             output+=`<li>${post.title} ----- Created At: ${createdDate.getHours()}:${createdDate.getMinutes()}:${createdDate.getSeconds()} ----- Last updated: ${Math.trunc((new Date().getTime() - post.createdAt)/1000)} seconds ago ----- Last Activity: ${post.lastActivityTime}</li>`;
+//         });
+//         document.body.innerHTML = output;   
+//     },1000);
+// }
+
+
+// function createPost(post){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             posts.push({...post,createdAt : new Date().getTime()});
+//             // console.log(posts);
+//             updateLstActivityTime();
+//             const error = false;
+//             if(!error){
+//                 resolve();
+//             }else{
+//                 reject(`Error: Something went wrong.`);
+//             }
+//         },1000);
+//     });
+// }
+
+
+// function updateLstActivityTime(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             posts.forEach((post)=>{
+//                 post.lastActivityTime=new Date().toLocaleDateString();
+//                 resolve();
+//             })
+//         }, 1000);
+//     })
+// }
+
+// function deletePost(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             if(posts.length>0){
+//                 resolve(posts.pop());
+//             }else{
+//                 reject(`Array is empty.`);
+//             }
+//         },5000);
+//     });
+// }
+
+// getPosts();
+
+// const displayPost=async () =>{
+
+//     let post3=createPost({title : 'Post 3',body : 'This is post Three'});
+//     let post4=createPost({title : 'Post 4',body : 'This is post Four'});
+//     // await post2;
+//     await post3;
+//     await post4;
+//     await deletePost();
+
+//     return getPosts();
+// }
+
+// displayPost();
+
+////////////////////////
+
+   ///dad makes promise
+// async function dadmakespromise(){
+//     try{
+//         const a =1;
+//     const dadspromise = await new Promise((resolve,reject) => {
+
+//          setTimeout(() => {
+
+//             var salarycredited =true;
+//             var salary = 100000;
+//             var costofps5 = 40000;
+//             var costofps4 = 30000;
+//             if(salarycredited ===true && salary > costofps5){
+//                 resolve("buy him a ps5");
+//             }else if(salarycredited ===true && salary > costofps4){
+
+//                 reject("buy him a ps4");
+               
+
+            
+//             }else{
+//                 reject("sorry son i will try next month")
+//             }
+
+
+//         },1000);
+        
+//     })
+// console.log(dadspromise);
+    
+// }
+
+// catch(err){
+//     console.log(err);
+// }
+
+// }
+// dadmakespromise();
+    
+
+
+
+
+
+
+////////////////////
+
+// console.log("a")
+// console.log("b")
+// setTimeout(() => {
+//     console.log("buying a playstation")
+// }, 3000);
+// setTimeout(() => {
+//     console.log("Booting the playstation")
+// }, 1000);
+
+///it print a,b,booting ps,buying ps..which is not correct order 
+///obviuosly first you have to buy a ps for boot a ps so that why await work with promise
+// async function playstation(){
+
+
+// console.log("a")
+// console.log("b")
+
+// const message = await new Promise((resolve,reject) =>{
+//     setTimeout(() => {
+//         resolve("buying a playstation")
+//     }, 3000);
+// })
+// console.log(message)
+
+// const message2 = await new Promise((resolve,reject) =>{
+//     setTimeout(() => {
+//         resolve("Booting a playstation")
+//     }, 1000);
+// })
+// console.log(message2)
+
+
+// }
+// playstation();
+
+
+//////////// as per youtuber
+
+//  console.log('person1: shows ticket');
+// console.log('person2: shows ticket');
+
+
+// const promiseWifeBringingTicket=new Promise((resolve,reject)=>{
+//     return setTimeout(() => {
+//         resolve('ticket');
+//     }, 3000);
+// });
+
+
+// const getPopcorn = promiseWifeBringingTicket.then((t)=>{
+//     console.log('wife: i have the ticket.')
+//     console.log(`husband: we should go in`);
+//     console.log(`wife: no i am hungry`);
+//     return new Promise((resolve,reject)=>resolve(`${t} popcorn`));
+// });
+
+// const getButter = getPopcorn.then((t)=>{
+//     console.log('husbend: i got some popcorn');
+//     console.log('husbend: we should go in');
+//     console.log('wife: i need butter on my popcorn');
+//     return new Promise((resolve,reject) => resolve(`${t} butter`));
+// });
+
+// getButter.then((t) => console.log(t));
+
+// console.log('person4: shows ticket');
+// console.log('person5: shws ticket');
+
+///////////////as per task
+// console.log('person1: shows ticket');
+// console.log('person2: shows ticket');
+
+
+// const preMovie = async () => {
+//     const promiseWifeBringingTicket = new Promise((resolve, reject)=>{
+//         setTimeout(()=>resolve('ticket',3000));
+//     });
+//     const getPopcorn=new Promise((resolve,reject)=>resolve(`popcorn`));
+//     const getButter=new Promise((resolve,reject)=>resolve(`butter`));
+//     const getColdDrinks=new Promise((resolve,reject)=>resolve(`ColdDrink`));
+
+
+
+//     let ticket = await promiseWifeBringingTicket;
+
+//     console.log(`wife: i have the ${ticket}`);
+//     console.log(`husband: we should go in`);
+//     console.log(`wife: no i am hungry`); 
+
+//      let popcorn=await getPopcorn;
+
+//      console.log(`husbend: i got some ${popcorn}`);
+//     console.log(`husbend: we should go in`);
+//     console.log(`wife: i need butter on my ${popcorn}`);
+
+    
+//     let butter=await getButter;
+
+//     console.log(`husbend: i got some ${butter} on my ${popcorn}`);
+//     console.log(`husbend: anything else darling`);
+//     console.log(`wife: let's go we are getting late`);
+//     console.log(`husbend: thank you for the reminder *grins*`);
+//     console.log(`wife: wait wait i need ColdDrink please`);
+
+//     let ColdDrink=await getColdDrinks;
+
+// console.log(`husbend: i got some ${ColdDrink} and all stuff`);
+// console.log(`husbend: we are almost lated`);
+// console.log(`wife: So, why we are waiting for, let's go`);
+     
+//     return ticket;
+// }
+
+
+// preMovie().then((m)=> console.log(`person3: shows ${m}`));
+
+// console.log('person4: shows ticket');
+// console.log('person5: shws ticket');
+
+
+//////////async await better then promise.then .....why
+// function child1(){
+//     return new Promise ((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log('child1 name is amar')
+//         }, 1000);
+//         resolve();
+//     })
+// }
+
+// function child2(){
+//     return new Promise ((resolve,reject)=>{
+//         setTimeout(() => {
+//             console.log('child2 name is samar')
+//         }, 1000);
+//         resolve();
+//     })
+// }
+// //promise.then:
+
+// child1().then(()=>{ return child2()});
+
+// //async and await:
+
+// async function child(){
+//     await child1();
+//     await child2();
+
+// }
+
+// child();
+
+
+///////////////////
+
+// console.log('person1: shows ticket');
+// console.log('person2: shows ticket');
+
+
+// const preMovie = async () => {
+//     const promiseWifeBringingTicket = new Promise((resolve, reject)=>{
+//         setTimeout(()=>resolve('ticket',3000));
+//     });
+
+//     const getPopcorn=new Promise((resolve,reject)=>resolve(`popcorn`));
+
+//     const getButter=new Promise((resolve,reject)=>resolve(`butter`));
+
+//     const getColdDrinks=new Promise((resolve,reject)=>resolve(`ColdDrink`));
+
+//     // let ticket = await promiseWifeBringingTicket;
+
+//     let [ticket,popcorn,butter]= await Promise.all([promiseWifeBringingTicket,getPopcorn,getButter]);
+
+//     console.log(`wife: i have the ${ticket}`);
+//     console.log(`husband: we should go in`);
+//     console.log(`wife: no i am hungry`);
+
+//     // let popcorn=await getPopcorn;
+
+//     console.log(`husbend: i got some ${popcorn}`);
+//     console.log(`husbend: we should go in`);
+//     console.log(`wife: i need butter on my ${popcorn}`);
+
+//     // let butter=await getButter;
+
+//     console.log(`husbend: i got some ${butter} on my ${popcorn}`);
+//     console.log(`husbend: anything else darling`);
+//     console.log(`wife: let's go we are getting late`);
+//     console.log(`husbend: thank you for the reminder *grins*`);
+//     console.log(`wife: wait wait i need ColdDrink please`);
+
+//     let ColdDrink=await getColdDrinks;
+
+//     console.log(`husbend: i got some ${ColdDrink} and all stuff`);
+//     console.log(`husbend: we are almost lated`);
+//     console.log(`wife: So, why we are waiting for, let's go`);
+
+//     return ticket;
+// };
+
+// preMovie().then((m)=> console.log(`person3: shows ${m}`));
+
+// console.log('person4: shows ticket');
+// console.log('oerson5: shws ticket');
+
+
+
+
+</script>
+</html>
